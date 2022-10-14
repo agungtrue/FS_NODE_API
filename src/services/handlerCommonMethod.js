@@ -1,8 +1,7 @@
 const CatchAsync = require('../utils/catchAsync');
-const AppError = require('../utils/appError');
 const httpStatus = require('http-status');
 
-exports.getAll = Model => CatchAsync(async (req, res, next) => {
+exports.getAll = (Model, Ref) => CatchAsync(async (req, res, next) => {
     const doc = await Model.find();
 
     res.status(httpStatus.OK).json({ 
@@ -23,7 +22,6 @@ exports.getOne = Model => CatchAsync(async (req, res, next) => {
 });
 
 exports.createOne = Model => CatchAsync(async (req, res, next) => {
-    // return res.json(req.body);
     const doc = await Model.create(req.body)
     res.status(httpStatus.CREATED).json({ 
         status: 'CREATED', 
