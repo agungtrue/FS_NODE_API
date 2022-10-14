@@ -2,7 +2,7 @@ const CatchAsync = require('../utils/catchAsync');
 const httpStatus = require('http-status');
 
 exports.getAll = (Model, Ref) => CatchAsync(async (req, res, next) => {
-    const doc = await Model.find();
+    const doc = await Model.find().populate(Ref);
 
     res.status(httpStatus.OK).json({ 
         status: 'OK', 
