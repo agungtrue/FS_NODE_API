@@ -8,7 +8,7 @@ exports.createAlert = factoryMethod.createOne(Alert);
 exports.updateAlert = factoryMethod.updateOne(Alert);
 
 // get all
-exports.getAllAlerts = factoryMethod.getAll(Alert);
+exports.getAllAlerts = factoryMethod.getAll(Alert, 'suspectedReason');
 
 // get one
 exports.getOneAlert = factoryMethod.getOne(Alert);
