@@ -8,6 +8,7 @@ const httpStatus = require('http-status');
 const authRoutes = require('./authRoutes');
 const userRoutes = require('./userRoutes');
 const alertRoutes = require('./alertRoutes');
+const suspectedReason = require('./suspectedReason');
 
 router.get('/', (req, res) => {
     return res.status(200).json({ status: 'ok', message: 'welcome to API server'})
@@ -24,6 +25,9 @@ router.use('/api/users', userRoutes);
 
 // alert
 router.use('/api/alert', alertRoutes);
+
+//suspected reason
+router.use('/api/suspected_reason', suspectedReason);
 
 // any request handler
 app.all('*', (req, res, next) => {

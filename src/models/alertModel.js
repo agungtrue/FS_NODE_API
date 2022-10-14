@@ -22,13 +22,20 @@ const alertSchema = new mongoose.Schema({
         type: String,
         required: [true, 'must have a machine sound clip']
     },
+    comments: {
+        type: String,
+    },
+    suspectedReason: {
+        type : mongoose.Schema.ObjectId,
+        ref: 'Reason',
+    },
+    action: {
+        type: String,
+    },
     createdAt: {
         type: Date,
         default: Date.now(),
     },
-}, {
-    toJSON: { virtuals: true },
-    toObject: { virtuals: true }
 });
 
 alertSchema.pre('save', async function(next){
